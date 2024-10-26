@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import './MapPage.css'; // Make sure to create this CSS file
+import './MapPage.css'; 
 
 function MapPage() {
     const [searchTerm, setSearchTerm] = useState('');

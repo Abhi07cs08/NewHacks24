@@ -9,4 +9,4 @@ function Alerts() {
     );
 }
 
-export default Alerts; // Ensure this export statement is present and correct
+export default Alerts; 

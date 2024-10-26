@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AlertsPage.css'; // Make sure to create this CSS file
+import './AlertsPage.css'; 
 
 function AlertsPage() {
     const [email, setEmail] = useState('');

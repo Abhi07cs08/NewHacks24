@@ -7,11 +7,10 @@
 }
 
 .hero {
-    margin-bottom: 2em; /* Adds space below the hero section */
-}
+    margin-bottom: 2em; 
 
 .button-spacing {
-    height: 1em; /* Adds space between the paragraph and the button */
+    height: 1em; 
 }
 
 .cta-button {
@@ -49,4 +48,5 @@
 
 .tips-list li {
     margin: 0.5em 0; /* Space between tips */
+}
 }
