@@ -1,17 +1,25 @@
 import React from 'react';
-import Map from './components/Map';
-import ShelterFinder from './components/ShelterFinder';
-import Alerts from './components/Alerts';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import MapPage from './components/MapPage';
+import ShelterFinderPage from './components/ShelterFinderPage';
+import AlertsPage from './components/AlertsPage';
+import Navbar from './components/Navbar';
 import './App.css';
 
 function App() {
     return (
-        <div className="App">
-            <h1>Disaster Relief Platform</h1>
-            <ShelterFinder />
-            <Alerts />
-            <Map />
-        </div>
+        <Router>
+            <div className="App">
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/map" element={<MapPage />} />
+                    <Route path="/shelter-finder" element={<ShelterFinderPage />} />
+                    <Route path="/alerts" element={<AlertsPage />} />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
