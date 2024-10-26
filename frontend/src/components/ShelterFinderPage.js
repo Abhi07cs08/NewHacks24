@@ -1,5 +1,5 @@
 import React from 'react';
-import './ShelterFinderPage.css'; // Make sure to create this CSS file
+import './ShelterFinderPage.css'; 
 
 function ShelterFinderPage() {
     return (
