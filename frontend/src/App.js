@@ -27,6 +27,7 @@ function App() {
                     <Route path="/alerts" element={<AlertsPage />} />
                     <Route path="/shelter" element={<ShelterFinderPage />} />
                     <Route path="/inventory-request" element={<InventoryRequest />} /> {/* Updated route */}
+                    <Route path="/inventory-request" element={<InventoryRequest />} />
                 </Routes>
             </div>
         </Router>

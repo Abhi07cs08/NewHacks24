@@ -16,7 +16,12 @@
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.27.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "redis": "^4.0.0"
   },
   "keywords": [],
   "author": "",
