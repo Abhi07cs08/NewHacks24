@@ -22,11 +22,26 @@ app.listen(PORT, () => {
 }); //http://localhost:3000/
 
 // INTEGRATION WITH REDIS to publish and subscribe to real-time updates
-const redisClient = redis.createClient();
 
-redisClient.on('connect', () => console.log('connected to redis')); // these two are for connecting nodejs to redis
-redisClient.on('error', (err) => console.error('redis error', err));
+const redis = require('redis');
 
+// Create a Redis client
+const redisClient = redis.createClient({
+  socket: {
+    host: '127.0.0.1', // Redis is running on localhost
+    port: 6380,         // Default Redis port
+  }
+});
+
+// Connect to Redis
+redisClient.connect()
+  .then(() => console.log('Connected to Redis'))
+  .catch((err) => console.error('Redis connection error:', err));
+
+// Error Handling
+redisClient.on('error', (err) => {
+  console.error('Redis client error:', err);
+});
 const subscriber = redisClient.duplicate();
 subscriber.subscribe('requestUpdates');
 
