@@ -19,7 +19,7 @@ let db;
 const redisClient = redis.createClient({
   socket: {
     host: '127.0.0.1', // Redis host
-    port: 6380 // Default Redis port
+    port: 6380 // Default Redics port
   }
 });
 
