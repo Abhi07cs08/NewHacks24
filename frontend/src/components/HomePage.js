@@ -2,9 +2,10 @@ import React from 'react';
 
 function HomePage() {
     return (
-        <div>
+        <div className="container">
             <h1>Welcome to the Disaster Relief Platform</h1>
-            <p>Use the navigation bar to access disaster alerts, shelter finder, and real-time map.</p>
+            <p>This platform connects people in disaster zones with resources and volunteers who can help.</p>
+            <p>Use the navigation above to explore features like real-time alerts, a map of affected areas, and shelter locations.</p>
         </div>
     );
 }

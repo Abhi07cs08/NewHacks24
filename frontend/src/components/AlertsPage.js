@@ -1,5 +1,5 @@
 import React from 'react';
-import Alerts from './Alerts';
+import Alerts from './Alerts'; // This should match the relative path to your Alerts.js file
 
 function AlertsPage() {
     return (
