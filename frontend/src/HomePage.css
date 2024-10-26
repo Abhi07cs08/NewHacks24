@@ -1,0 +1,39 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: center;
+}
+
+.hero {
+    background-color: #004aad;
+    color: white;
+    padding: 2em;
+    border-radius: 8px;
+}
+
+.cta-button {
+    background-color: #003280;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.resources {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin: 2em 0;
+}
+
+.resource-card {
+    background-color: #f4f7fa;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tips-list {
+    list-style-type: none;
+}

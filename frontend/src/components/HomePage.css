@@ -1,0 +1,52 @@
+/* src/components/HomePage.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: center;
+}
+
+.hero {
+    margin-bottom: 2em; /* Adds space below the hero section */
+}
+
+.button-spacing {
+    height: 1em; /* Adds space between the paragraph and the button */
+}
+
+.cta-button {
+    background-color: #004aad; /* Button background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #003280; /* Darker shade on hover */
+}
+
+.resources {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-bottom: 2em; /* Add some space below the resources */
+}
+
+.resource-card {
+    background-color: #e8f0fe; /* Light blue background for resource cards */
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    max-width: 300px; /* Limit width of resource cards */
+}
+
+.tips-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.tips-list li {
+    margin: 0.5em 0; /* Space between tips */
+}

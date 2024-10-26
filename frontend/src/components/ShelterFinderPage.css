@@ -1,0 +1,16 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.shelter-details {
+    background-color: #f4f7fa;
+    padding: 1.5em;
+    margin: 1em 0;
+    border-radius: 8px;
+}
+
+.faqs {
+    list-style-type: none;
+}
