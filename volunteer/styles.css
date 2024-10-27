@@ -1,0 +1,80 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #343a40;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+    overflow: hidden; /* Hide overflow content */
+    text-overflow: ellipsis; /* Add ellipsis for overflow content */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.completed {
+    background-color: #c3e6cb; /* Light green */
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.status-button {
+    background-color: #ffc107; /* Yellow */
+}
+
+.status-button:hover {
+    background-color: #e0a800;
+}
+
+/* Enable horizontal scrolling */
+.scrollable-table {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Responsive design for larger screens */
+@media (min-width: 600px) {
+    td {
+        white-space: normal; /* Allow wrapping in larger screens */
+    }
+}
