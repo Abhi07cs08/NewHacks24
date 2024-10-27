@@ -37,13 +37,7 @@ function MapPage() {
     return (
         <div className="container">
             <h1>Disaster Relief Map</h1>
-            <input 
-                type="text" 
-                placeholder="Search for a location..." 
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
-                className="search-bar"
-            />
+        
             <MapContainer 
                 center={gtaCenter} 
                 zoom={zoomLevel} 
