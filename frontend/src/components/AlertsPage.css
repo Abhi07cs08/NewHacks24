@@ -24,14 +24,54 @@
     cursor: pointer;
 }
 
-.alerts-timeline {
-    background-color: #f4f7fa;
-    padding: 1.5em;
-    border-radius: 8px;
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #fef4f4; /* Light red background for alerts */
+    border: 2px solid #d9534f; /* Darker red border */
+    padding: 10px 0; /* Add some vertical padding */
+}
+
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%; /* Start padding for scrolling effect */
+    animation: marquee 10s linear infinite; /* Animation for scrolling */
 }
 
 .alert-item {
-    margin: 1em 0;
-    padding: 1em;
-    border-bottom: 1px solid #ccc;
+    display: inline-block; /* Display items inline */
+    margin-right: 30px; /* Space between alert items */
+    font-weight: bold; /* Bold text for alerts */
+}
+
+@keyframes marquee {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-100%, 0); /* Move to the left */
+    }
+}
+
+.affected-area {
+    background-color: #ffe5e5; /* Light pink background */
+    border: 2px solid #d9534f; /* Dark red border */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px; /* Space above the box */
+}
+
+.affected-area h4 {
+    margin: 0; /* Remove default margin */
+}
+
+.affected-area ul {
+    list-style-type: disc; /* Add disc bullets */
+    padding-left: 20px; /* Indent the list */
+    margin: 5px 0 0; /* Space below the list */
+}
+
+.affected-area li {
+    margin: 5px 0; /* Space between list items */
 }
