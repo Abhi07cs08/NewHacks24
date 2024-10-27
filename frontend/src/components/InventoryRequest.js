@@ -4,7 +4,7 @@ import './InventoryRequest.css';
 
 function InventoryRequest() {
     const [requests, setRequests] = useState([]);
-    const [newRequest, setNewRequest] = useState({ item: '', quantity: '', shelter: '', comments: '' });
+    const [newRequest, setNewRequest] = useState({ item: '', quantity: '', shelter: '', comments: '', dateTime: '' }); // Add dateTime
     const [isSubmitted, setIsSubmitted] = useState(false); // Track submission status
     
     // Sample items for dropdown
@@ -25,10 +25,15 @@ function InventoryRequest() {
     // Handle new request form submit
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Add current date and time
+        const currentDateTime = new Date().toLocaleString();
+        const requestToSubmit = { ...newRequest, dateTime: currentDateTime }; // Include dateTime
+
         try {
-            const response = await axios.post('http://localhost:3000/api/requests', newRequest);
+            const response = await axios.post('http://localhost:3000/api/requests', requestToSubmit);
             setRequests([...requests, response.data]);
-            setNewRequest({ item: '', quantity: '', shelter: '', comments: '' });
+            setNewRequest({ item: '', quantity: '', shelter: '', comments: '', dateTime: '' }); // Reset form
             setIsSubmitted(true); // Set submission status to true
         } catch (error) {
             console.error('Error creating request:', error);
