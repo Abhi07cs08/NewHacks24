@@ -49,3 +49,107 @@
     justify-content: space-between;
     align-items: center;
 }
+.inventory-request-container {
+    padding: 20px;
+    background: #f4f7fa;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-request-container h2, 
+.inventory-request-container h3 {
+    color: #004aad;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.inventory-request-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.inventory-request-container select,
+.inventory-request-container input,
+.inventory-request-container textarea,
+.inventory-request-container button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%;
+}
+
+.inventory-request-container select {
+    background-color: #fff;
+}
+
+.inventory-request-container textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.inventory-request-container input[type="text"],
+.inventory-request-container input[type="number"] {
+    background-color: #fff;
+}
+
+.inventory-request-container button {
+    background-color: #004aad;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    font-weight: bold;
+}
+
+.inventory-request-container button:hover {
+    background-color: #003280;
+}
+
+.inventory-request-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.inventory-request-container li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inventory-request-container li p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.inventory-request-container li button {
+    align-self: flex-end;
+    background-color: #d9534f;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.inventory-request-container li button:hover {
+    background-color: #c9302c;
+}
+.success-message {
+    color: #28a745;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
