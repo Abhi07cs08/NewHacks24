@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/HomePage';
 import MapPage from './components/MapPage';
-import AlertsPage from './components/AlertsPage';
-import ShelterFinderPage from './components/ShelterFinderPage';
-import InventoryRequest from './components/InventoryRequest'; // Updated import
+import InjuryAlertsPage from './components/InjuryAlertsPage';
+import PitcherProfilesPage from './components/PitcherProfilesPage';
+import FatigueReport from './components/FatigueReport';
 
 function App() {
     return (
@@ -16,18 +16,17 @@ function App() {
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/map">Map</Link></li>
-                        <li><Link to="/alerts">Alerts</Link></li>
-                        <li><Link to="/shelter">Shelter Finder</Link></li>
-                        <li><Link to="/inventory-request">Request Inventory Delivery</Link></li> {/* Updated link */}
+                        <li><Link to="/injury-alerts">Injury Alerts</Link></li>
+                        <li><Link to="/pitchers">Pitcher Profiles</Link></li>
+                        <li><Link to="/fatigue-report">Submit Fatigue Report</Link></li>
                     </ul>
                 </nav>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/map" element={<MapPage />} />
-                    <Route path="/alerts" element={<AlertsPage />} />
-                    <Route path="/shelter" element={<ShelterFinderPage />} />
-                    <Route path="/inventory-request" element={<InventoryRequest />} /> {/* Updated route */}
-                    <Route path="/inventory-request" element={<InventoryRequest />} />
+                    <Route path="/injury-alerts" element={<InjuryAlertsPage />} />
+                    <Route path="/pitchers" element={<PitcherProfilesPage />} />
+                    <Route path="/fatigue-report" element={<FatigueReport />} />
                 </Routes>
             </div>
         </Router>
