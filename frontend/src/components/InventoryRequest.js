@@ -2,51 +2,51 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './InventoryRequest.css';
 
-function InventoryRequest() {
-    const [requests, setRequests] = useState([]);
-    const [newRequest, setNewRequest] = useState({ item: '', quantity: '', shelter: '', comments: '', dateTime: '' }); // Add dateTime
-    const [isSubmitted, setIsSubmitted] = useState(false); // Track submission status
-    
-    // Sample items for dropdown
-    const items = [
-        { value: 'Food', label: 'Food' },
-        { value: 'Water', label: 'Water' },
-        { value: 'Clothing', label: 'Clothing' },
-        { value: 'Medical Supplies', label: 'Medical Supplies' },
+function FatigueReport() {
+    const [reports, setReports] = useState([]);
+    const [newReport, setNewReport] = useState({ pitcher: '', fatigueLevel: '', injuryRisk: '', comments: '', dateTime: '' });
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    // Sample pitchers for dropdown
+    const pitchers = [
+        { value: 'John Doe', label: 'John Doe' },
+        { value: 'Mike Smith', label: 'Mike Smith' },
+        { value: 'Alex Johnson', label: 'Alex Johnson' },
+        { value: 'Chris Lee', label: 'Chris Lee' },
     ];
-    
-    // Fetch existing requests on mount
+
+    // Fetch existing reports on mount
     useEffect(() => {
-        axios.get('http://localhost:3000/api/requests')
-            .then(response => setRequests(response.data))
-            .catch(error => console.error('Error fetching requests:', error));
+        axios.get('http://localhost:3000/api/reports')
+            .then(response => setReports(response.data))
+            .catch(error => console.error('Error fetching reports:', error));
     }, []);
-    
-    // Handle new request form submit
+
+    // Handle new report form submit
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Add current date and time
         const currentDateTime = new Date().toLocaleString();
-        const requestToSubmit = { ...newRequest, dateTime: currentDateTime }; // Include dateTime
+        const reportToSubmit = { ...newReport, dateTime: currentDateTime };
 
         try {
-            const response = await axios.post('http://localhost:3000/api/requests', requestToSubmit);
-            setRequests([...requests, response.data]);
-            setNewRequest({ item: '', quantity: '', shelter: '', comments: '', dateTime: '' }); // Reset form
-            setIsSubmitted(true); // Set submission status to true
+            const response = await axios.post('http://localhost:3000/api/reports', reportToSubmit);
+            setReports([...reports, response.data]);
+            setNewReport({ pitcher: '', fatigueLevel: '', injuryRisk: '', comments: '', dateTime: '' });
+            setIsSubmitted(true);
         } catch (error) {
-            console.error('Error creating request:', error);
+            console.error('Error creating report:', error);
         }
     };
 
-    // Delete request
+    // Delete report
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/api/requests/${id}`);
-            setRequests(requests.filter(request => request.id !== id));
+            await axios.delete(`http://localhost:3000/api/reports/${id}`);
+            setReports(reports.filter(report => report.id !== id));
         } catch (error) {
-            console.error('Error deleting request:', error);
+            console.error('Error deleting report:', error);
         }
     };
 

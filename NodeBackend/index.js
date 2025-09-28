@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 //router setup
 app.get('/', (req, res) => {
-    res.send('DisasterAidNow.io backend is setup and is running');
+    res.send('PitchSafe backend is setup and running');
 });
 
 //start the server
@@ -49,43 +49,43 @@ subscriber.on('message',(channel, message) => {
     console.log(`Channel: ${channel}, Message: ${message}`); // with these 2 we set up a redis subscriber for real-time updates
 }); //This event listener is triggered every time a message is published on the requestUpdates channel. It logs the channel name and the message content to the console.
 
-//creating API ROUTES so that frontend can create update delete and view requests 
-let requests = [];
+// API ROUTES for pitcher fatigue/injury reports
+let reports = [];
 
-//get all requestios
-app.get('/api/requests', (req, res) => {
-    res.json(requests);
+// Get all reports
+app.get('/api/reports', (req, res) => {
+    res.json(reports);
 });
 
-//create a new requests
-app.post('/api/requests/:id', (req, res) => {
-    const newRequest = { id: Date.now(), ...req.body, status: 'Pending'};
-    requests.push(newRequest);
-    redisClient.publish('requestUpdates', JSON.stringify(newRequest));
-    res.status(201).json(newRequest);
+// Create a new report
+app.post('/api/reports/:id', (req, res) => {
+    const newReport = { id: Date.now(), ...req.body, status: 'Pending'};
+    reports.push(newReport);
+    redisClient.publish('reportUpdates', JSON.stringify(newReport));
+    res.status(201).json(newReport);
 });
 
-//update request status
-app.put('/api/requests/:id', (req, res) => {
+// Update report status
+app.put('/api/reports/:id', (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
-    const request = requests.find((r) => r.id === parseInt(id));
-    if (request) {
-        request.status = status;
-        redisClient.publish('requestUpdates', JSON.stringify(request));
-        res.json(request);
+    const report = reports.find((r) => r.id === parseInt(id));
+    if (report) {
+        report.status = status;
+        redisClient.publish('reportUpdates', JSON.stringify(report));
+        res.json(report);
     } else {
-        res.status(404).json({ message: 'Request not found'});
+        res.status(404).json({ message: 'Report not found'});
     }
 });
 
-//function call to delete a request
-app.delete('/api/requests/:id', (req, res) => {
+// Delete a report
+app.delete('/api/reports/:id', (req, res) => {
     const { id } = req.params;
-    requests = requests.filter((r) => r.id !== parseInt(id));
-    redisClient.publish('requestUpdates', JSON.stringify({ id, status: 'Deleted'}));
-    res.json({ message: `Request ${id} deleted` });
-})
+    reports = reports.filter((r) => r.id !== parseInt(id));
+    redisClient.publish('reportUpdates', JSON.stringify({ id, status: 'Deleted'}));
+    res.json({ message: `Report ${id} deleted` });
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {

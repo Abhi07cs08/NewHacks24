@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import './AlertsPage.css'; 
 
-function AlertsPage() {
+function InjuryAlertsPage() {
     const [email, setEmail] = useState('');
 
     const alerts = [
-        { id: 1, message: "Severe storm warning in your area.", date: "2024-10-26" },
-        { id: 2, message: "Evacuation orders issued for downtown.", date: "2024-10-25" }
+        { id: 1, message: "Pitcher John Doe showing signs of fatigue. Monitor closely.", date: "2025-09-28" },
+        { id: 2, message: "High injury risk detected for Pitcher Mike Smith after last game.", date: "2025-09-27" }
     ];
 
-    const affectedAreas = [
-        "Downtown",
-        "East Side",
-        "Riverside",
-        "North Valley",
-        "South Hill"
+    const affectedPitchers = [
+        "John Doe",
+        "Mike Smith",
+        "Alex Johnson",
+        "Chris Lee",
+        "Sam Brown"
     ];
 
     const handleSubscribe = (e) => {
@@ -25,11 +25,11 @@ function AlertsPage() {
 
     return (
         <div className="container">
-            <h2>Current Disaster Alerts</h2>
+            <h2>Current Injury & Fatigue Alerts</h2>
             <form onSubmit={handleSubscribe} className="subscription-form">
                 <input 
                     type="email" 
-                    placeholder="Subscribe for alerts..." 
+                    placeholder="Subscribe for pitcher alerts..." 
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     required
@@ -47,7 +47,7 @@ function AlertsPage() {
                 </div>
             </div>
             <div className="affected-area">
-                <h4>Affected Areas</h4>
+                <h4>Affected Pitchers</h4>
                 <ul>
                     {affectedAreas.map((area, index) => (
                         <li key={index}>{area}</li>

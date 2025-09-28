@@ -17,7 +17,7 @@ let db; // Variable to store the database connection
 async function connectToMongoDB() {
     try {
         await client.connect();
-        db = client.db('disasterAidDB'); // Database name
+    db = client.db('pitchSafeDB'); // Database name
         console.log("Connected to MongoDB!");
     } catch (error) {
         console.error("MongoDB connection error:", error);
@@ -30,48 +30,48 @@ app.use(express.json()); // Parse incoming JSON requests
 
 // Root Route
 app.get('/', (req, res) => {
-    res.send('Welcome to the Disaster Aid Backend!');
+    res.send('Welcome to the PitchSafe Backend!');
 });
 
-// Get All Requests
-app.get('/api/requests', async (req, res) => {
+// Get All Fatigue/Injury Reports
+app.get('/api/reports', async (req, res) => {
     try {
-        const requests = await db.collection('requests').find().toArray();
-        res.json(requests);
+        const reports = await db.collection('reports').find().toArray();
+        res.json(reports);
     } catch (error) {
-        res.status(500).json({ message: 'Error fetching requests', error });
+        res.status(500).json({ message: 'Error fetching reports', error });
     }
 });
 
-// Mark a Request as Completed
-app.patch('/api/requests/:id', async (req, res) => {
+// Mark a Report as Reviewed
+app.patch('/api/reports/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await db.collection('requests').updateOne(
+        const result = await db.collection('reports').updateOne(
             { _id: new ObjectId(id) },
-            { $set: { completed: true } }
+            { $set: { reviewed: true } }
         );
 
         if (result.modifiedCount === 1) {
-            console.log(`Request ${id} marked as completed`);
-            res.json({ message: 'Request marked as completed' });
+            console.log(`Report ${id} marked as reviewed`);
+            res.json({ message: 'Report marked as reviewed' });
         } else {
-            res.status(404).json({ message: 'Request not found' });
+            res.status(404).json({ message: 'Report not found' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Error marking request as completed', error });
+        res.status(500).json({ message: 'Error marking report as reviewed', error });
     }
 });
 
-// Delete All Completed Requests
-app.delete('/api/requests/completed', async (req, res) => {
+// Delete All Reviewed Reports
+app.delete('/api/reports/reviewed', async (req, res) => {
     try {
-        const result = await db.collection('requests').deleteMany({ completed: true });
-        console.log(`${result.deletedCount} completed requests deleted.`);
-        res.json({ message: 'Completed requests deleted', deletedCount: result.deletedCount });
+        const result = await db.collection('reports').deleteMany({ reviewed: true });
+        console.log(`${result.deletedCount} reviewed reports deleted.`);
+        res.json({ message: 'Reviewed reports deleted', deletedCount: result.deletedCount });
     } catch (error) {
-        res.status(500).json({ message: 'Error deleting completed requests', error });
+        res.status(500).json({ message: 'Error deleting reviewed reports', error });
     }
 });
 
