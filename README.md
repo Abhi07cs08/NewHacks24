@@ -1,35 +1,14 @@
-# PitchSafe
+Inspiration During times of natural disasters, the most vulnerable communities rely heavily on shelters and aid services. However, the logistics of distributing supplies can often lead to delays, inefficiencies, or missed opportunities to deliver aid where it is needed most. We wanted to create a streamlined solution that bridges the gap between shelters and supply inventories to ensure aid is distributed efficiently and in real-time.
 
-PitchSafe is a platform for baseball coaches to monitor pitcher fatigue and injury risk based on gameplay data and reports. It helps coaches make informed decisions to protect their players' health and performance.
+What it does SupplyFlow is a disaster management platform that connects shelters requesting supplies with the nearest available inventories. It provides real-time tracking and routing of supplies, ensuring that essential items reach shelters quickly. Shelters can request resources, track the status of requests, and receive recommendations for the closest inventory through the platform.
 
-## Features
+How we built it Backend: We used Node.js and Express to create the backend server, which handles the API routes and manages shelter requests. Database: We used MongoDB to store and manage the data for requests and inventories. Redis Integration: Redis powers the real-time updates to ensure that any change in requests or status is reflected immediately across the platform. Frontend: The frontend was built with HTML, CSS, and JavaScript, with a focus on creating a user-friendly interface for managing requests. Map Integration: We used Leaflet.js to display shelter and inventory locations on an interactive map, helping visualize the flow of supplies.
 
-- View real-time injury and fatigue alerts for pitchers
-- Browse pitcher profiles with fatigue and injury risk stats
-- Submit and review pitcher fatigue/injury risk reports
-- Coach dashboard for monitoring team health
+Challenges we ran into Real-Time Data Sync: Implementing Redis for real-time updates required learning how to efficiently manage pub/sub messaging. Routing Logic: Developing the logic to match the closest inventories to shelters based on location required fine-tuning. MongoDB Integration: Ensuring that all requests were properly recorded and updated in MongoDB without conflicts. Frontend and Backend Sync: Synchronizing the frontend display with backend data in real-time posed challenges, especially for completed request handling.
 
-## Tech Stack
+Accomplishments that we're proud of Successfully implemented a real-time tracking system using Redis to push updates across the platform. Developed a functional routing logic to recommend the closest inventory to a requesting shelter. Created a clean and interactive interface that displays requests in a well-organized table with status updates. Integrated MongoDB and Node.js, even though it was our first time working with these technologies in tandem.
 
-- **Frontend:** React
-- **Backend:** Node.js, Express, MongoDB
-- **Real-time:** Redis (for live updates)
+What we learned Redis is an incredibly powerful tool for managing real-time updates, especially for pub/sub systems. We deepened our understanding of MongoDB and how to design databases for handling dynamic data like supply requests. Frontend-backend communication is key to creating smooth user experiences, especially when working with real-time data. Effective team collaboration is essential, as each member focused on specific parts of the project while ensuring everything fit together seamlessly.
 
-## Getting Started
+What's next for SupplyFlow Automated Route Optimization: We plan to integrate Google Maps API to provide optimized delivery routes between inventories and shelters. User Authentication: Adding login functionality using Auth0 for secure access and role-based management. Scaling the System: Expanding the platform to support multiple disaster zones with larger datasets. Mobile Integration: Building a mobile version of the app for easier access by volunteers and field workers. AI-Powered Predictions: Implementing machine learning to predict inventory needs based on historical disaster data.
 
-1. Clone the repository
-2. Install dependencies in `frontend/` and `NodeBackend/`
-3. Start the backend and frontend servers
-
-## Folder Structure
-
-- `frontend/` — React app for coaches
-- `NodeBackend/` — Node.js/Express API for reports and alerts
-
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first.
-
-## License
-
-MIT
